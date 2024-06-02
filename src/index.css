@@ -1,0 +1,261 @@
+:root {
+  --primary: #6cb6ff;
+  --secondary: #1d5d9c;
+  --tertiary: #bcd3e7;
+  --hover: #dce6ef;
+  --background: #f1f6fb;
+  --text: #071320;
+  --light: #fafcff;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'McLaren', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+p {
+  margin: 0;
+}
+
+.calendar {
+  max-width: 360px;
+  min-width: 320px;
+  width: 100%;
+  color: var(--text);
+  background-color: var(--background);
+  padding: 12px;
+  box-sizing: border-box;
+  user-select: none;
+  border-radius: 4px;
+}
+
+.calendar button {
+  font-family: 'McLaren', sans-serif;
+}
+
+.calendar-top {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.current-month {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  padding-left: 7px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 30px;
+}
+
+.current-month button {
+  font-size: inherit;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.calendar-navigation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calendar-navigation button {
+  border: 0;
+  outline: 0;
+  color: var(--secondary);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.calendar-navigation button:hover {
+  background-color: var(--hover);
+}
+
+.calendar-body {
+  position: relative;
+}
+
+.calendar-years,
+.calendar-months {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  visibility: hidden;
+}
+
+.calendar-years.opened,
+.calendar-months.opened {
+  visibility: visible;
+}
+
+.calendar-years .year,
+.calendar-months .month {
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.calendar-years .year:hover,
+.calendar-months .month:hover {
+  background-color: var(--hover);
+}
+
+.calendar-years .year.selected,
+.calendar-months .month.selected {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.calendar-years .year.current {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.calendar-days .week-day {
+  text-align: center;
+  color: var(--secondary);
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.calendar-days .day {
+  padding: 2px;
+  text-align: center;
+}
+
+.calendar-days .day.previous-month,
+.calendar-days .day.next-month {
+  opacity: 0.5;
+}
+
+.calendar-days .day button,
+.calendar-days .day span {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.calendar-days .day button {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.calendar-days .day button:hover {
+  background-color: var(--hover);
+}
+
+.calendar-days .day.today button {
+  background-color: var(--secondary);
+  color: var(--light);
+}
+
+.calendar-days .day.selected button {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.date-picker {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.date-picker.opened {
+  z-index: 10;
+}
+
+.date-picker > label {
+  display: block;
+  margin-bottom: 4px;
+  font-family: 'McLaren', sans-serif;
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.date-picker > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background);
+  border-radius: 4px;
+  padding: 10px;
+  gap: 6px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  width: 300px;
+}
+
+.date-picker > button p {
+  font-family: 'McLaren', sans-serif;
+  font-size: 16px;
+  color: var(--secondary);
+  flex: 1 1 0%;
+  text-align: left;
+}
+
+.date-picker button > .arrow {
+  font-size: 14px;
+  color: var(--secondary);
+}
+
+.submit-button {
+  background: var(--primary);
+  color: var(--white);
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: inherit;
+  border: 0;
+  outline: 0;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: var(--secondary);
+}
